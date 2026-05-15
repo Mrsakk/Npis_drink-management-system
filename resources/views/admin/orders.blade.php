@@ -7,7 +7,7 @@
 <div class="table-card mb-4" data-animate>
     <div class="card-header">
         <span><i class="bi bi-funnel-fill me-2 text-primary"></i>{{ __('Filter Orders') }}</span>
-        <span class="badge glass rounded-pill px-3 py-1" style="font-size: 0.75rem; border: 1px solid rgba(14,165,233,0.2);">
+        <span class="badge rounded-pill px-3 py-1 text-muted" style="font-size: 0.75rem; background: var(--ad-surface-2);">
             {{ $orders->total() }} {{ __('Total') }}
         </span>
     </div>
@@ -60,18 +60,18 @@
                 @forelse($orders as $order)
                 <tr>
                     <td>
-                        <span class="fw-800 text-primary">#{{ $order->order_number }}</span>
+                        <span class="fw-bold text-primary">#{{ $order->order_number }}</span>
                     </td>
                     <td>
-                        <div class="fw-700 text-white">{{ $order->student_name }}</div>
+                        <div class="fw-bold">{{ $order->student_name }}</div>
                         <div class="text-muted small"><i class="bi bi-telephone me-1"></i>{{ $order->phone }}</div>
                     </td>
                     <td>
-                        <div class="small text-white opacity-90"><i class="bi bi-building me-1 opacity-50"></i>{{ $order->building }}</div>
+                        <div class="small"><i class="bi bi-building me-1 text-muted"></i>{{ $order->building }}</div>
                         <div class="text-muted small">{{ __('Room') }} {{ $order->room_number }}</div>
                     </td>
                     <td>
-                        <span class="fw-800 text-primary">៛{{ number_format($order->total, 2) }}</span>
+                        <span class="fw-bold text-primary">៛{{ number_format($order->total, 2) }}</span>
                     </td>
                     <td>
                         @switch($order->status)
@@ -103,7 +103,7 @@
                 @empty
                 <tr>
                     <td colspan="7" class="text-center py-5">
-                        <i class="bi bi-inbox fs-1 text-primary opacity-25 d-block mb-2"></i>
+                        <i class="bi bi-inbox fs-1 text-muted d-block mb-2"></i>
                         <span class="text-muted">{{ __('No orders found') }}</span>
                     </td>
                 </tr>
@@ -112,5 +112,9 @@
         </table>
     </div>
 </div>
+
+@if($orders->hasPages())
+<div class="d-flex justify-content-center mt-4">{{ $orders->links('pagination::bootstrap-5') }}</div>
+@endif
 
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mb-4">
-    <h3 class="fw-800 mb-1" style="color:var(--clr-text);">{{ __('Create Account') }} 🚀</h3>
+    <h3 class="fw-800 mb-1" style="color:var(--text);">{{ __('Create Account') }} 🚀</h3>
     <p class="text-muted small">{{ __('Join NPIA Drink and get drinks fast.') }}</p>
 </div>
 

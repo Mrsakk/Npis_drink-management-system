@@ -7,55 +7,55 @@
 <div class="row g-4 mb-4">
     <div class="col-xl-3 col-md-6">
         <div class="stat-card" data-animate>
-            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+            <div class="stat-icon" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">
                 <i class="bi bi-hourglass-split"></i>
             </div>
             <div class="stat-label">{{ __('Pending Orders') }}</div>
-            <div class="stat-value text-white">{{ $pendingOrders }}</div>
-            <div class="stat-trend" style="background: rgba(245, 158, 11, 0.08); color: #f59e0b;">
+            <div class="stat-value">{{ $pendingOrders }}</div>
+            <div class="stat-trend badge-pending">
                 <i class="bi bi-clock me-1"></i> {{ __('Awaiting') }}
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
         <div class="stat-card" data-animate>
-            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+            <div class="stat-icon" style="background: rgba(22, 163, 74, 0.1); color: #16a34a;">
                 <i class="bi bi-currency-exchange"></i>
             </div>
             <div class="stat-label">{{ __('Total Revenue') }}</div>
-            <div class="stat-value text-white" style="font-size: 1.6rem;">៛{{ number_format($totalRevenue, 0) }}</div>
-            <div class="stat-trend" style="background: rgba(16, 185, 129, 0.08); color: #10b981;">
+            <div class="stat-value" style="font-size: 1.5rem;">៛{{ number_format($totalRevenue, 0) }}</div>
+            <div class="stat-trend badge-completed">
                 <i class="bi bi-graph-up-arrow me-1"></i> {{ __('Revenue') }}
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
         <div class="stat-card" data-animate>
-            <div class="stat-icon" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;">
+            <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: #2563eb;">
                 <i class="bi bi-bag-check-fill"></i>
             </div>
             <div class="stat-label">{{ __('Total Orders') }}</div>
-            <div class="stat-value text-white">{{ $totalOrders }}</div>
-            <div class="stat-trend" style="background: rgba(14, 165, 233, 0.08); color: #0ea5e9;">
+            <div class="stat-value">{{ $totalOrders }}</div>
+            <div class="stat-trend badge-processing">
                 <i class="bi bi-receipt me-1"></i> {{ __('All Time') }}
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
         <div class="stat-card" data-animate>
-            <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+            <div class="stat-icon" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed;">
                 <i class="bi bi-calendar-check-fill"></i>
             </div>
             <div class="stat-label">{{ __('Today\'s Orders') }}</div>
-            <div class="stat-value text-white">{{ $todayOrders }}</div>
-            <div class="stat-trend" style="background: rgba(139, 92, 246, 0.08); color: #8b5cf6;">
+            <div class="stat-value">{{ $todayOrders }}</div>
+            <div class="stat-trend" style="background: rgba(124, 58, 237, 0.08); color: #7c3aed;">
                 <i class="bi bi-sun me-1"></i> {{ __('Today') }}
             </div>
         </div>
     </div>
 </div>
 
-{{-- Quick Actions --}}
+{{-- Quick Actions & Overview --}}
 <div class="row g-4">
     <div class="col-lg-6">
         <div class="table-card h-100" data-animate>
@@ -65,27 +65,27 @@
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-6">
-                        <a href="{{ route('admin.orders') }}" class="btn btn-primary w-100 text-start d-flex align-items-center gap-3 py-3 border-0" style="background: rgba(14,165,233,0.1); color: #0ea5e9;">
+                        <a href="{{ route('admin.orders') }}" class="btn btn-outline-primary w-100 text-start d-flex align-items-center gap-3 py-3">
                             <i class="bi bi-bag-check-fill fs-5"></i>
-                            <span class="fw-700">{{ __('Manage Orders') }}</span>
+                            <span class="fw-bold">{{ __('Manage Orders') }}</span>
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="{{ route('admin.product.create') }}" class="btn btn-primary w-100 text-start d-flex align-items-center gap-3 py-3 border-0" style="background: rgba(16,185,129,0.1); color: #10b981;">
+                        <a href="{{ route('admin.product.create') }}" class="btn btn-outline-primary w-100 text-start d-flex align-items-center gap-3 py-3">
                             <i class="bi bi-plus-circle-fill fs-5"></i>
-                            <span class="fw-700">{{ __('Add Product') }}</span>
+                            <span class="fw-bold">{{ __('Add Product') }}</span>
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="{{ route('admin.products') }}" class="btn btn-primary w-100 text-start d-flex align-items-center gap-3 py-3 border-0" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">
+                        <a href="{{ route('admin.products') }}" class="btn btn-outline-primary w-100 text-start d-flex align-items-center gap-3 py-3">
                             <i class="bi bi-cup-straw fs-5"></i>
-                            <span class="fw-700">{{ __('All Products') }}</span>
+                            <span class="fw-bold">{{ __('All Products') }}</span>
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="{{ route('admin.users') }}" class="btn btn-primary w-100 text-start d-flex align-items-center gap-3 py-3 border-0" style="background: rgba(244,63,94,0.1); color: #f43f5e;">
+                        <a href="{{ route('admin.users') }}" class="btn btn-outline-primary w-100 text-start d-flex align-items-center gap-3 py-3">
                             <i class="bi bi-people-fill fs-5"></i>
-                            <span class="fw-700">{{ __('Manage Users') }}</span>
+                            <span class="fw-bold">{{ __('Manage Users') }}</span>
                         </a>
                     </div>
                 </div>
@@ -101,19 +101,19 @@
                 <div class="d-flex flex-column gap-4">
                     @php
                         $items = [
-                            ['label' => __('Pending Orders'), 'value' => $pendingOrders, 'color' => '#f59e0b', 'pct' => min(100, $totalOrders > 0 ? ($pendingOrders / $totalOrders * 100) : 0)],
-                            ['label' => __('Completed Today'), 'value' => $todayOrders, 'color' => '#10b981', 'pct' => min(100, $totalOrders > 0 ? ($todayOrders / $totalOrders * 100) : 0)],
-                            ['label' => __('Total Revenue'), 'value' => '៛'.number_format($totalRevenue, 0), 'color' => '#0ea5e9', 'pct' => 85],
+                            ['label' => __('Pending Orders'), 'value' => $pendingOrders, 'color' => '#d97706', 'pct' => min(100, $totalOrders > 0 ? ($pendingOrders / $totalOrders * 100) : 0)],
+                            ['label' => __('Completed Today'), 'value' => $todayOrders, 'color' => '#16a34a', 'pct' => min(100, $totalOrders > 0 ? ($todayOrders / $totalOrders * 100) : 0)],
+                            ['label' => __('Total Revenue'), 'value' => '៛'.number_format($totalRevenue, 0), 'color' => '#2563eb', 'pct' => 85],
                         ];
                     @endphp
                     @foreach($items as $item)
                     <div>
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted small fw-700 text-uppercase letter-spacing-1">{{ $item['label'] }}</span>
-                            <span class="text-white fw-800">{{ $item['value'] }}</span>
+                            <span class="text-muted small fw-bold text-uppercase" style="letter-spacing: 0.5px;">{{ $item['label'] }}</span>
+                            <span class="fw-bold">{{ $item['value'] }}</span>
                         </div>
-                        <div class="glass" style="height: 8px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-                            <div style="height: 100%; width: {{ $item['pct'] }}%; background: {{ $item['color'] }}; border-radius: 10px; transition: width 1.5s cubic-bezier(0.16,1,0.3,1);"></div>
+                        <div style="height: 6px; border-radius: 6px; overflow: hidden; background: var(--ad-surface-2);">
+                            <div style="height: 100%; width: {{ $item['pct'] }}%; background: {{ $item['color'] }}; border-radius: 6px; transition: width 1s ease;"></div>
                         </div>
                     </div>
                     @endforeach

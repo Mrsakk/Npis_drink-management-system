@@ -33,6 +33,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place-order');
     Route::get('/order/success/{orderId}', [OrderController::class, 'orderSuccess'])->name('order.success');
     Route::get('/orders', [StoreController::class, 'orders'])->name('orders');
+
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [App\Http\Controllers\ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {

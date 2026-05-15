@@ -36,49 +36,69 @@
     </div>
 </div>
 
-<div class="filter-bar" data-animate>
-    <div class="filter-group">
+<div class="filter-bar glass rounded-pill p-2 mb-5 d-flex align-items-center justify-content-between" data-animate>
+    <div class="d-flex align-items-center gap-2 ps-3">
         <span class="text-muted small fw-700 text-uppercase letter-spacing-1">{{ __('Sort By') }}:</span>
-        <button class="btn-filter active">{{ __('All Products') }}</button>
-        <button class="btn-filter">{{ __('Premium Only') }}</button>
+        <div class="dropdown">
+            <button class="btn btn-link nav-link glass px-3 py-1 rounded-pill dropdown-toggle border-0" type="button" data-bs-toggle="dropdown">
+                {{ __('Default') }}
+            </button>
+            <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="#">{{ __('Latest') }}</a></li>
+                <li><a class="dropdown-item" href="#">{{ __('Price: Low to High') }}</a></li>
+                <li><a class="dropdown-item" href="#">{{ __('Price: High to Low') }}</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="filter-group">
-        <span class="text-muted small">{{ __('Displaying') }} {{ $products->count() }} {{ __('of') }} {{ $products->total() }}</span>
+    <div class="pe-3">
+        <span class="text-muted small">{{ __('Displaying') }} <strong>{{ $products->count() }}</strong> {{ __('of') }} <strong>{{ $products->total() }}</strong></span>
     </div>
 </div>
 
-<div class="row g-4 mb-5">
+<div class="responsive-card-grid mb-5">
     @forelse($products as $index => $product)
-    <div class="col-lg-4 col-md-6" data-animate>
-        <div class="product-card-premium">
-            <div class="product-img-box">
+    <div data-animate>
+        <div class="product-card h-100">
+            <div class="card-img-wrapper">
                 @if($product->image)
-                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
+                    <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="{{ $product->name }}">
                 @else
                     <div class="bg-secondary bg-opacity-10 text-primary d-flex align-items-center justify-content-center h-100">
                         <i class="bi bi-cup-straw fs-1"></i>
                     </div>
                 @endif
-                <div class="position-absolute top-0 end-0 p-3">
-                    <span class="badge glass rounded-pill px-3 py-2 text-primary" style="font-size: 0.7rem;">
-                        <i class="bi bi-stars me-1"></i> {{ __('Premium') }}
-                    </span>
+                <div class="delivery-badge-mini">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <span>{{ __('Fast Delivery') }}</span>
+                </div>
+                
+                <div class="qv-overlay">
+                    <button type="button" class="btn-qv" onclick="openQuickView({
+                        id: '{{ $product->id }}',
+                        name: '{{ addslashes($product->name) }}',
+                        category: '{{ addslashes($category->name) }}',
+                        description: '{{ addslashes($product->description) }}',
+                        price: '{{ number_format($product->price, 0) }}',
+                        image: '{{ $product->image ? asset('storage/' . $product->image) : asset('img/logo.png') }}'
+                    })">
+                        <i class="bi bi-eye-fill"></i> {{ __('Quick View') }}
+                    </button>
                 </div>
             </div>
-            <div class="product-info-box">
-                <h5 class="product-title-premium">{{ $product->name }}</h5>
-                <p class="text-muted small mb-4">{{ Str::limit($product->description, 70) }}</p>
+            <div class="product-info">
+                <h5 class="product-name text-truncate">{{ $product->name }}</h5>
+                <p class="product-desc line-clamp-2">{{ Str::limit($product->description, 70) }}</p>
                 
                 <div class="mt-auto">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="product-price-premium">៛{{ number_format($product->price, 2) }}</span>
+                        <span class="price-text">៛{{ number_format($product->price, 0) }}</span>
                     </div>
                     <form action="{{ route('add-to-cart') }}" method="POST">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="btn-premium-cart">
-                            <i class="bi bi-cart-plus-fill fs-5"></i> {{ __('Add to Cart') }}
+                        <button type="submit" class="btn-add-cart w-100">
+                            <i class="bi bi-cart-plus-fill me-2"></i> {{ __('Add to Cart') }}
                         </button>
                     </form>
                 </div>
@@ -89,7 +109,7 @@
     <div class="col-12" data-animate>
         <div class="glass text-center p-5 rounded-5 border-dashed">
             <i class="bi bi-emoji-frown fs-1 text-primary opacity-50 mb-3 d-block"></i>
-            <h4 class="fw-800" style="color:var(--clr-text);">{{ __('No products found') }}</h4>
+            <h4 class="fw-800" style="color:var(--text);">{{ __('No products found') }}</h4>
             <p class="text-muted">{{ __('We are currently updating our inventory for this category.') }}</p>
             <a href="{{ route('categories') }}" class="btn-luxury btn-luxury-outline mt-4 px-5">
                 <i class="bi bi-arrow-left me-2"></i>{{ __('Back to Categories') }}

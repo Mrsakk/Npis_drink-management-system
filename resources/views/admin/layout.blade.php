@@ -13,13 +13,6 @@
     @yield('styles')
 </head>
 <body>
-    {{-- ── Background Orbs ── --}}
-    <div class="luxury-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
-
     {{-- ── Sidebar ── --}}
     <aside class="sidebar" id="adminSidebar">
         <div class="sidebar-brand">
@@ -68,8 +61,8 @@
         </nav>
 
         <div class="sidebar-footer">
-            <a href="{{ route('home') }}" class="sidebar-link" style="background: rgba(14,165,233,0.1); border-color: rgba(14,165,233,0.2); color: #fff;">
-                <div class="sidebar-link-icon" style="background: var(--ad-primary); color: #fff;"><i class="bi bi-globe2"></i></div>
+            <a href="{{ route('home') }}" class="sidebar-link active">
+                <div class="sidebar-link-icon"><i class="bi bi-globe2"></i></div>
                 <span>{{ __('View Store') }}</span>
             </a>
         </div>
@@ -91,7 +84,7 @@
                 </div>
             </div>
             <div class="topbar-actions">
-                <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm d-none d-sm-flex align-items-center gap-2 px-3 border-opacity-10 glass" style="height: 38px; border-radius: 10px;">
+                <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm d-none d-sm-flex align-items-center gap-2 px-3">
                     <i class="bi bi-globe2"></i> <span>{{ __('View Store') }}</span>
                 </a>
                 <div class="dropdown">

@@ -5,8 +5,8 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4" data-animate>
     <div>
-        <h4 class="fw-800 text-white mb-0">{{ __('Products Catalog') }}</h4>
-        <p class="text-muted small mt-1">{{ __('Manage your drink & snack inventory.') }}</p>
+        <h4 class="fw-bold mb-0">{{ __('Products Catalog') }}</h4>
+        <p class="text-muted small mt-1 mb-0">{{ __('Manage your drink & snack inventory.') }}</p>
     </div>
     <a href="{{ route('admin.product.create') }}" class="btn btn-primary d-flex align-items-center gap-2">
         <i class="bi bi-plus-circle-fill"></i> {{ __('Add Product') }}
@@ -48,7 +48,7 @@
 <div class="table-card" data-animate>
     <div class="card-header">
         <span><i class="bi bi-cup-straw me-2 text-primary"></i>{{ __('All Products') }}</span>
-        <span class="badge glass rounded-pill px-3 py-1" style="font-size: 0.75rem; border: 1px solid rgba(14,165,233,0.2);">
+        <span class="badge rounded-pill px-3 py-1 text-muted" style="font-size: 0.75rem; background: var(--ad-surface-2);">
             {{ $products->total() }} {{ __('unit') }}
         </span>
     </div>
@@ -70,38 +70,36 @@
                     <td>
                         <div class="d-flex align-items-center gap-3">
                             @if($product->image)
-                                <img src="{{ asset('storage/'.$product->image) }}" class="rounded-3 border border-opacity-10" style="width:42px;height:42px;object-fit:cover;">
+                                <img src="{{ asset('storage/'.$product->image) }}" class="rounded-3" style="width:40px;height:40px;object-fit:cover;border:1px solid var(--ad-border);">
                             @else
-                                <div class="glass rounded-3 text-primary d-flex align-items-center justify-content-center" style="width:42px;height:42px;border:1px solid rgba(14,165,233,0.2);">
+                                <div class="glass rounded-3 text-primary d-flex align-items-center justify-content-center" style="width:40px;height:40px;">
                                     <i class="bi bi-box-fill"></i>
                                 </div>
                             @endif
                             <div>
-                                <div class="fw-700 text-white">{{ $product->name }}</div>
-                                <div class="text-muted small opacity-50">ID #{{ $product->id }}</div>
+                                <div class="fw-bold">{{ $product->name }}</div>
+                                <div class="text-muted small">ID #{{ $product->id }}</div>
                             </div>
                         </div>
                     </td>
                     <td>
-                        <span class="badge glass rounded-pill px-3 py-1 text-primary-emphasis" style="font-size: 0.75rem; border: 1px solid rgba(14,165,233,0.2);">
-                            {{ $product->category->name }}
-                        </span>
+                        <span class="badge-status badge-processing">{{ $product->category->name }}</span>
                     </td>
                     <td>
-                        <span class="fw-800 text-primary">៛{{ number_format($product->price, 2) }}</span>
+                        <span class="fw-bold text-primary">៛{{ number_format($product->price, 2) }}</span>
                     </td>
                     <td>
-                        <span class="fw-700" style="color:{{ $product->stock > 10 ? '#10b981' : ($product->stock > 0 ? '#f59e0b' : '#ef4444') }};">
+                        <span class="fw-bold" style="color:{{ $product->stock > 10 ? '#16a34a' : ($product->stock > 0 ? '#d97706' : '#dc2626') }};">
                             {{ $product->stock }}
                         </span>
                     </td>
                     <td>
                         @if($product->is_featured)
-                            <span class="badge-status" style="background:rgba(245,158,11,0.1); color:#f59e0b; border: 1px solid rgba(245,158,11,0.2);">
+                            <span class="badge-status badge-pending">
                                 <i class="bi bi-star-fill me-1"></i> {{ __('Yes') }}
                             </span>
                         @else
-                            <span class="text-muted small opacity-50">—</span>
+                            <span class="text-muted small">—</span>
                         @endif
                     </td>
                     <td>
@@ -118,7 +116,7 @@
                 @empty
                 <tr>
                     <td colspan="6" class="text-center py-5">
-                        <i class="bi bi-box-seam fs-1 text-primary opacity-25 d-block mb-2"></i>
+                        <i class="bi bi-box-seam fs-1 text-muted d-block mb-2"></i>
                         <span class="text-muted">{{ __('No products found') }}</span>
                     </td>
                 </tr>
@@ -133,4 +131,3 @@
 @endif
 
 @endsection
-on

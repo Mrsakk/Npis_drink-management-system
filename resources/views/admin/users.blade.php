@@ -5,8 +5,8 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4" data-animate>
     <div>
-        <h4 class="fw-800 text-white mb-0">{{ __('Users') }}</h4>
-        <p class="text-muted small mt-1">{{ __('Registered customers & administrative staff.') }}</p>
+        <h4 class="fw-bold mb-0">{{ __('Users') }}</h4>
+        <p class="text-muted small mt-1 mb-0">{{ __('Registered customers & administrative staff.') }}</p>
     </div>
 </div>
 
@@ -33,7 +33,7 @@
 <div class="table-card" data-animate>
     <div class="card-header">
         <span><i class="bi bi-people-fill me-2 text-primary"></i>{{ __('All Users') }}</span>
-        <span class="badge glass rounded-pill px-3 py-1" style="font-size: 0.75rem; border: 1px solid rgba(14,165,233,0.2);">
+        <span class="badge rounded-pill px-3 py-1 text-muted" style="font-size: 0.75rem; background: var(--ad-surface-2);">
             {{ $users->total() }} {{ __('users') }}
         </span>
     </div>
@@ -53,26 +53,26 @@
                 <tr>
                     <td>
                         <div class="d-flex align-items-center gap-3">
-                            <div class="glass d-flex align-items-center justify-content-center fw-800 text-primary rounded-circle" style="width:36px;height:36px;border:1px solid rgba(14,165,233,0.2); font-size: 0.85rem;">
+                            <div class="d-flex align-items-center justify-content-center fw-bold text-primary rounded-circle" style="width:36px;height:36px;background:rgba(37,99,235,0.1);font-size:0.85rem;flex-shrink:0;">
                                 {{ strtoupper(substr($user->name, 0, 1)) }}
                             </div>
-                            <span class="fw-700 text-white">{{ $user->name }}</span>
+                            <span class="fw-bold">{{ $user->name }}</span>
                         </div>
                     </td>
                     <td class="text-muted small">{{ $user->email }}</td>
                     <td>
                         @if($user->role === 'admin')
-                            <span class="badge-status" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.2);">
+                            <span class="badge-status" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed; border: 1px solid rgba(124, 58, 237, 0.2);">
                                 <i class="bi bi-shield-fill-check me-1"></i> {{ __('Admin') }}
                             </span>
                         @else
-                            <span class="badge-status" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.2);">
+                            <span class="badge-status badge-processing">
                                 <i class="bi bi-person-fill me-1"></i> {{ __('User') }}
                             </span>
                         @endif
                     </td>
                     <td>
-                        <span class="fw-800 text-primary">{{ $user->orders->count() }}</span>
+                        <span class="fw-bold text-primary">{{ $user->orders->count() }}</span>
                     </td>
                     <td class="text-muted small">
                         <i class="bi bi-calendar3 me-1"></i>{{ $user->created_at->format('M d, Y') }}
@@ -81,7 +81,7 @@
                 @empty
                 <tr>
                     <td colspan="5" class="text-center py-5">
-                        <i class="bi bi-people fs-1 text-primary opacity-25 d-block mb-2"></i>
+                        <i class="bi bi-people fs-1 text-muted d-block mb-2"></i>
                         <span class="text-muted">{{ __('No users found') }}</span>
                     </td>
                 </tr>

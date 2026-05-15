@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Showcase | Modern Responsive Design</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    <!-- ── Header ── -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">PLATINUM<span class="text-gradient">.</span></a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#hero">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="nav-btns">
+                    <button class="theme-btn" id="themeToggle">
+                        <i class="bi bi-moon-stars"></i>
+                    </button>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ── Hero Section ── -->
+        <section class="hero" id="hero">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            
+            <div class="container">
+                <div class="hero-content" data-reveal>
+                    <h1>Design the <span class="text-gradient">Future</span> of Web Experiences</h1>
+                    <p>Building high-performance, aesthetically stunning, and fully responsive digital products with a mobile-first approach and cutting-edge UI trends.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#gallery" class="btn btn-primary">View Projects</a>
+                        <a href="#about" class="btn btn-glass">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Features Section ── -->
+        <section id="features">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <h2>Premium <span class="text-gradient">Features</span></h2>
+                    <p>Engineered for excellence and optimized for speed.</p>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card" data-reveal>
+                        <i class="bi bi-lightning-charge fs-2 text-primary"></i>
+                        <h3 class="my-3">Ultra Fast</h3>
+                        <p class="text-muted">Optimized performance and lightning-fast load times across all devices.</p>
+                    </div>
+                    <div class="card" data-reveal>
+                        <i class="bi bi-shield-check fs-2 text-primary"></i>
+                        <h3 class="my-3">Secure Code</h3>
+                        <p class="text-muted">Following best practices in security and modern frontend architecture.</p>
+                    </div>
+                    <div class="card" data-reveal>
+                        <i class="bi bi-phone fs-2 text-primary"></i>
+                        <h3 class="my-3">Mobile First</h3>
+                        <p class="text-muted">Designed to look perfect on small screens before scaling up to desktop.</p>
+                    </div>
+                    <div class="card" data-reveal>
+                        <i class="bi bi-stars fs-2 text-primary"></i>
+                        <h3 class="my-3">Modern UI</h3>
+                        <p class="text-muted">Implementing glassmorphism and subtle animations for a premium feel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── About Section ── -->
+        <section id="about">
+            <div class="container">
+                <div class="card" data-reveal>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+                        <div>
+                            <h2 class="mb-4">Why Choose <span class="text-gradient">Our Design?</span></h2>
+                            <p class="text-muted mb-4">We believe that every pixel matters. Our approach combines rigorous UX research with stunning visual design to create products that users love and businesses trust.</p>
+                            <ul class="list-unstyled d-grid gap-3">
+                                <li><i class="bi bi-check2-circle text-primary me-2"></i> Custom-tailored solutions</li>
+                                <li><i class="bi bi-check2-circle text-primary me-2"></i> Fully responsive architecture</li>
+                                <li><i class="bi bi-check2-circle text-primary me-2"></i> Seamless user interactions</li>
+                            </ul>
+                        </div>
+                        <div style="background: var(--primary-glow); border-radius: 2rem; padding: 2rem; text-align: center;">
+                            <i class="bi bi-palette" style="font-size: 5rem; color: var(--primary);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Gallery Section ── -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <h2>Our <span class="text-gradient">Gallery</span></h2>
+                    <p>A showcase of our most recent digital masterpieces.</p>
+                </div>
+                
+                <!-- This grid follows your "2 cards per row on mobile" requirement -->
+                <div class="card-grid">
+                    <div class="card p-0 overflow-hidden" data-reveal>
+                        <div style="height: 200px; background: #ddd;"></div>
+                        <div class="p-4">
+                            <h4>Project Alpha</h4>
+                            <small class="text-muted">Web Design</small>
+                        </div>
+                    </div>
+                    <div class="card p-0 overflow-hidden" data-reveal>
+                        <div style="height: 200px; background: #ccc;"></div>
+                        <div class="p-4">
+                            <h4>Project Beta</h4>
+                            <small class="text-muted">App Development</small>
+                        </div>
+                    </div>
+                    <div class="card p-0 overflow-hidden" data-reveal>
+                        <div style="height: 200px; background: #bbb;"></div>
+                        <div class="p-4">
+                            <h4>Project Gamma</h4>
+                            <small class="text-muted">Branding</small>
+                        </div>
+                    </div>
+                    <div class="card p-0 overflow-hidden" data-reveal>
+                        <div style="height: 200px; background: #aaa;"></div>
+                        <div class="p-4">
+                            <h4>Project Delta</h4>
+                            <small class="text-muted">E-Commerce</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Contact Section ── -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <h2>Get in <span class="text-gradient">Touch</span></h2>
+                    <p>Let's discuss how we can build something amazing together.</p>
+                </div>
+
+                <div class="contact-container">
+                    <div class="card" data-reveal>
+                        <h3>Contact Info</h3>
+                        <p class="text-muted mb-4">Reach out to us via any of these channels.</p>
+                        <div class="d-grid gap-4">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-geo-alt text-primary"></i>
+                                <span>Phnom Penh, Cambodia</span>
+                            </div>
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-envelope text-primary"></i>
+                                <span>hello@platinum.com</span>
+                            </div>
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-phone text-primary"></i>
+                                <span>+855 12 345 678</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="card" data-reveal>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="logo">PLATINUM<span class="text-gradient">.</span></a>
+            </div>
+            <div class="d-flex justify-content-center gap-4 mb-4">
+                <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-muted"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="text-muted small">&copy; 2026 Platinum Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
